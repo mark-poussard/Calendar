@@ -3,12 +3,16 @@ import { range } from "../../business/utility/Util";
 import Day from "./Day";
 
 export default class Month{
-    year : Year;
-    month : number;
+    private year : Year;
+    private month : number;
 
     constructor(year : number, month : number){
         this.year = new Year(year);
         this.month = month;
+    }
+
+    asNumber = () => {
+        return this.month;
     }
 
     getNumberOfDays = () => {
@@ -28,11 +32,43 @@ export default class Month{
         if(days30.indexOf(this.month) > -1){
             return 30;
         }
+        throw new Error("Unreachable code");
     }
 
     getDays = () => {
         return range(this.getNumberOfDays(), 1)
             .map(d => new Day(this.year.asNumber(), this.month, d));
+    }
+
+    getKeyValue = () => {
+        switch(this.month){
+            case Months.JANUARY:
+                return 1;
+            case Months.FEBRUARY:
+                return 4;
+            case Months.MARCH:
+                return 4;
+            case Months.APRIL:
+                return 0;
+            case Months.MAY:
+                return 2;
+            case Months.JUNE:
+                return 5;
+            case Months.JULY:
+                return 0;
+            case Months.AUGUST:
+                return 3;
+            case Months.SEPTEMBER:
+                return 6;
+            case Months.OCTOBER:
+                return 1;
+            case Months.NOVEMBER:
+                return 4;
+            case Months.DECEMBER:
+                return 6;
+            default:
+                throw new Error("Unreachable code");                                                                                                                                                                                                                                                                                                                                                                                                                   
+        }
     }
 }
 

@@ -1,3 +1,3 @@
-export function range(size, startAt = 0) {
-    return [...Array(size).keys()].map(i => i + startAt);
+export function range(size : number, startAt = 0) {
+    return [...Object.keys(Array(size))].map(i => parseInt(i) + startAt);
 }

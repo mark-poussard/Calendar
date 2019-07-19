@@ -12,4 +12,12 @@ export default class Year{
         return (this.year % 4 === 0 && this.year%100 !== 0) 
                 || (this.year%100 === 0 && this.year%400 === 0);
     }
+
+    lastTwoDigits = () => {
+        return this.year % 100;
+    }
+
+    getCenturyCode = () => {
+
+    }
 }

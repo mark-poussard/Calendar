@@ -20,15 +20,44 @@ export default class Month{
         return this.month;
     }
 
+    public asString = () => {
+        switch(this.month){
+            case Months.JANUARY:
+                return "January";
+            case Months.FEBRUARY:
+                return "February";
+            case Months.MARCH:
+                return "March";
+            case Months.APRIL:
+                return "April";
+            case Months.MAY:
+                return "May";
+            case Months.JUNE:
+                return "June";
+            case Months.JULY:
+                return "July";
+            case Months.AUGUST:
+                return "August";
+            case Months.SEPTEMBER:
+                return "September";
+            case Months.OCTOBER:
+                return "October";
+            case Months.NOVEMBER:
+                return "November";
+            case Months.DECEMBER:
+                return "December";
+        }
+    }
+
     public getNumberOfDays = () => {
-        const days31 = [1, 3, 5, 7, 8, 10, 12];
-        const days30 = [4, 6, 9, 11];
+        const days31 = [0, 2, 4, 6, 7, 9, 11];
+        const days30 = [3, 5, 8, 10];
         if(this.month === Months.FEBRUARY){
             if(this.year.isLeapYear()){
-                return 28;
+                return 29;
             }
             else{
-                return 29;
+                return 28;
             }
         }
         if(days31.indexOf(this.month) > -1){
@@ -43,6 +72,30 @@ export default class Month{
     public getDays = () => {
         return range(this.getNumberOfDays(), 1)
             .map(d => new Day(this.year.asNumber(), this.month, d));
+    }
+
+    public getYear = () => {
+        return this.year;
+    }
+
+    public getNextMonth = () => {
+        let nextMonthYear = this.year.asNumber();
+        let nextMonth = this.month + 1;
+        if(nextMonth > Months.DECEMBER){
+            nextMonth = Months.JANUARY;
+            nextMonthYear += 1;
+        }
+        return new Month(nextMonthYear, nextMonth);
+    }
+
+    public getPreviousMonth = () => {
+        let nextMonthYear = this.year.asNumber();
+        let nextMonth = this.month - 1;
+        if(nextMonth < Months.JANUARY){
+            nextMonth = Months.DECEMBER;
+            nextMonthYear -= 1;
+        }
+        return new Month(nextMonthYear, nextMonth);
     }
 }
 

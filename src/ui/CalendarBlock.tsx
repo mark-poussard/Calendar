@@ -17,8 +17,10 @@ export default class CalendarBlock extends React.Component<ICalendarBlockProps, 
     }
 
     render(){
+        const todayClassName = (this.props.day.isToday()) ? "today" : "";
+
         return (
-            <div>
+            <div className={`calendar-block ${todayClassName}`}>
                 {this.props.day.asNumber()}
             </div>
         );

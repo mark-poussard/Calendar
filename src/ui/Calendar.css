@@ -1,0 +1,19 @@
+.calendar-body{
+
+}
+
+.calendar-body .calendar-block{
+    width: 14%;
+    display: inline-block;
+    border: 1px solid black;
+}
+
+.calendar-body .calendar-block.today{
+    background-color: yellow;
+}
+
+.calendar-header .calendar-legend{
+    width: 14%;
+    display: inline-block;
+    border: 1px solid black;
+}

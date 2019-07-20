@@ -1,8 +1,8 @@
 import React from 'react';
-import Day, { Days } from '../model/time/Day';
+import Day from '../model/time/Day';
 import CalendarOptions from '../model/CalendarOptions';
-import CalendarBlockSpace from './CalendarBlockSpace';
 import CalendarBlock from './CalendarBlock';
+import CalendarSpace from './CalendarSpace';
 
 interface ICalendarLineProps{
     days : Day[];
@@ -42,7 +42,7 @@ export default class CalendarLine extends React.Component<ICalendarLineProps>{
     renderOffsetBlocks = () => {
         const result : JSX.Element[] = [];
         for(let i = 0; i<this.getOffset(); i++){
-            result.push(<CalendarBlockSpace key={`OFFSET_${i}`}/>);
+            result.push(<CalendarSpace key={`OFFSET_${i}`}/>);
         }
         return result;
     }
@@ -50,7 +50,7 @@ export default class CalendarLine extends React.Component<ICalendarLineProps>{
     renderBufferBlocks = () => {
         const result : JSX.Element[] = [];
         for(let i = 0; i<this.getBuffer(); i++){
-            result.push(<CalendarBlockSpace key={`BUFFER_${i}`}/>);
+            result.push(<CalendarSpace key={`BUFFER_${i}`}/>);
         }
         return result;
     }

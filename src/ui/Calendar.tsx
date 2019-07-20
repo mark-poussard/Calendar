@@ -2,6 +2,8 @@ import React from 'react';
 import Month from '../model/time/Month';
 import CalendarBody from './CalendarBody';
 import CalendarHeader from './CalendarHeader';
+import CalendarNavigation from './CalendarNavigation';
+import './Calendar.css';
 
 interface ICalendarProps{
     
@@ -23,9 +25,14 @@ export default class Calendar extends React.Component<ICalendarProps, ICalendarS
     render(){
         return (
             <div>
-                <CalendarHeader />
+                <CalendarHeader month={this.state.month} />
                 <CalendarBody month={this.state.month} />
+                <CalendarNavigation month={this.state.month} setMonth={this.setMonth}/>
             </div>
         );
+    }
+
+    setMonth = (month : Month) => {
+        this.setState({month});
     }
 }

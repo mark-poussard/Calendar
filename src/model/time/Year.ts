@@ -6,6 +6,10 @@ export default class Year{
         this.year = year;
     }
 
+    static getCurrentYear = () => {
+        return new Year(new Date().getFullYear());
+    }
+
     asNumber = () => { return this.year; }
 
     isLeapYear = () => {

@@ -11,11 +11,16 @@ export default class Month{
         this.month = month;
     }
 
-    asNumber = () => {
+    static getCurrentMonth = () => {
+        const now = new Date();
+        return new Month(now.getFullYear(), now.getMonth());
+    }
+
+    public asNumber = () => {
         return this.month;
     }
 
-    getNumberOfDays = () => {
+    public getNumberOfDays = () => {
         const days31 = [1, 3, 5, 7, 8, 10, 12];
         const days30 = [4, 6, 9, 11];
         if(this.month === Months.FEBRUARY){
@@ -35,40 +40,9 @@ export default class Month{
         throw new Error("Unreachable code");
     }
 
-    getDays = () => {
+    public getDays = () => {
         return range(this.getNumberOfDays(), 1)
             .map(d => new Day(this.year.asNumber(), this.month, d));
-    }
-
-    getKeyValue = () => {
-        switch(this.month){
-            case Months.JANUARY:
-                return 1;
-            case Months.FEBRUARY:
-                return 4;
-            case Months.MARCH:
-                return 4;
-            case Months.APRIL:
-                return 0;
-            case Months.MAY:
-                return 2;
-            case Months.JUNE:
-                return 5;
-            case Months.JULY:
-                return 0;
-            case Months.AUGUST:
-                return 3;
-            case Months.SEPTEMBER:
-                return 6;
-            case Months.OCTOBER:
-                return 1;
-            case Months.NOVEMBER:
-                return 4;
-            case Months.DECEMBER:
-                return 6;
-            default:
-                throw new Error("Unreachable code");                                                                                                                                                                                                                                                                                                                                                                                                                   
-        }
     }
 }
 

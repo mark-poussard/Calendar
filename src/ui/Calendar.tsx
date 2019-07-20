@@ -1,5 +1,7 @@
 import React from 'react';
 import Month from '../model/time/Month';
+import CalendarBody from './CalendarBody';
+import CalendarHeader from './CalendarHeader';
 
 interface ICalendarProps{
     
@@ -14,19 +16,15 @@ export default class Calendar extends React.Component<ICalendarProps, ICalendarS
         super(props);
 
         this.state = {
-            month : this.getCurrentMonth()
+            month : Month.getCurrentMonth()
         }
-    }
-
-    getCurrentMonth = () => {
-        const now = new Date();
-        return new Month(now.getFullYear(), now.getMonth());
     }
 
     render(){
         return (
             <div>
-
+                <CalendarHeader />
+                <CalendarBody month={this.state.month} />
             </div>
         );
     }

@@ -26,7 +26,7 @@ export default class CalendarLine extends React.Component<ICalendarLineProps>{
     getOffset = () => {
         const firstDay = this.props.days[0];
         if(firstDay.isFirstOfMonth()){
-            return firstDay.getDayOfTheWeek() - CalendarOptions.START_CALENDAR_HEADER_ON;
+            return ((firstDay.getDayOfTheWeek() - CalendarOptions.START_CALENDAR_HEADER_ON)%7+7)%7;
         }
         return 0;
     }
@@ -34,7 +34,7 @@ export default class CalendarLine extends React.Component<ICalendarLineProps>{
     getBuffer = () => {
         const lastDay = this.props.days[this.props.days.length-1];
         if(lastDay.isLastOfMonth()){
-            return (8 - lastDay.getDayOfTheWeek() - CalendarOptions.START_CALENDAR_HEADER_ON) % 7;
+            return ((8 - lastDay.getDayOfTheWeek() - CalendarOptions.START_CALENDAR_HEADER_ON) % 7 + 7) % 7;
         }
         return 0;
     }

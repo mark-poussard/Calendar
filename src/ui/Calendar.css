@@ -2,18 +2,22 @@
 
 }
 
-.calendar-body .calendar-block{
-    width: 14%;
+.calendar-body .calendar-grid-item{
+    width: 13vw;
     display: inline-block;
+}
+
+.calendar-body .calendar-block{
     border: 1px solid black;
+    height: 9vw;
 }
 
 .calendar-body .calendar-block.today{
-    background-color: yellow;
+    color: red;
 }
 
 .calendar-header .calendar-legend{
-    width: 14%;
+    width: 13vw;
     display: inline-block;
     border: 1px solid black;
 }

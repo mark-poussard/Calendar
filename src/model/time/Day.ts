@@ -14,7 +14,7 @@ export default class Day{
     }
 
     getDayOfTheWeek = () => {
-        return new Date(this.year.asNumber(), this.month.asNumber(), this.day).getDay();
+        return this.toDate().getDay();
     }
 
     isFirstOfMonth = () => {
@@ -34,6 +34,10 @@ export default class Day{
         return now.getFullYear() === this.year.asNumber()
                 && now.getMonth() === this.month.asNumber()
                 && now.getDate() === this.day;
+    }
+
+    toDate = () => {
+        return new Date(this.year.asNumber(), this.month.asNumber(), this.day);
     }
 }
 

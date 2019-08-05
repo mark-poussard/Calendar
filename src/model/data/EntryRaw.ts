@@ -1,5 +1,5 @@
 export default interface EntryRaw{
-    startDate : String;
-    endDate : String;
-    location : String;
+    startDate : string;
+    endDate : string;
+    location : string;
 }

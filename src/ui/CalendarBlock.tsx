@@ -20,6 +20,16 @@ export default class CalendarBlock extends React.Component<ICalendarBlockProps, 
         };
     }
 
+    componentDidUpdate(previousProps : ICalendarBlockProps){
+        if (previousProps.day.toDate().getTime() !== this.props.day.toDate().getTime()){
+            this.setState(
+                {
+                    locations : DataStore.getLocationsForDate(this.props.day.toDate())
+                }
+            );
+        }
+    }
+
     render(){
         const todayClassName = (this.props.day.isToday()) ? "today" : "";
 

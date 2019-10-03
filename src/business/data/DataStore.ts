@@ -35,8 +35,8 @@ class DataStore{
         }
         const result = [];
         for(let entry of this.data){
-            if(date >= entry.startDate
-                && date < entry.endDate){
+            if(date.getTime() >= entry.startDate.getTime()
+                && date.getTime() <= entry.endDate.getTime()){
                 result.push(entry.location);
             }
         }

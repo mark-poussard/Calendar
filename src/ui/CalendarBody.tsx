@@ -2,6 +2,8 @@ import React from 'react';
 import Month from '../model/time/Month';
 import Day, { Days } from '../model/time/Day';
 import CalendarLine from './CalendarLine';
+import EmptyCalendarLine from './EmptyCalendarLine';
+import CalendarSpace from './CalendarSpace';
 
 interface ICalendarBodyProps{
     month : Month;
@@ -30,6 +32,10 @@ export default class CalendarBody extends React.Component<ICalendarBodyProps, IC
                 lines.push(<CalendarLine key={`CALENDAR_LINE_${keyCounter++}`} days={currentLine}/>)
                 currentLine = [];
             }
+        }
+
+        if (lines.length < 6) {
+            lines.push(<EmptyCalendarLine/>)
         }
         return (
             <div className={`calendar-body`}>

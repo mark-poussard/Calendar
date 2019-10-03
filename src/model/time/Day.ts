@@ -37,7 +37,7 @@ export default class Day{
     }
 
     toDate = () => {
-        return new Date(this.year.asNumber(), this.month.asNumber(), this.day);
+        return new Date(Date.UTC(this.year.asNumber(), this.month.asNumber(), this.day));
     }
 }
 

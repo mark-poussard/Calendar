@@ -16,9 +16,9 @@ export default class Locations extends React.Component<ILocationsProps>{
         const list : JSX.Element[] = [];
         for(let location of this.props.locations){
             list.push(
-                <span key={`LIST_LOCATION_${location}`}>
+                <div key={`LIST_LOCATION_${location}`}>
                     {location}
-                </span>
+                </div>
             );
         }
         return (

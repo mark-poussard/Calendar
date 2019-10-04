@@ -29,7 +29,7 @@ class DataStore{
         }
     }
 
-    getLocationsForDate = (date : Date) => {
+    getEntriesForDate = (date : Date) => {
         if(this.data == null){
             throw new Error("Data was not ready to consume");
         }
@@ -37,7 +37,7 @@ class DataStore{
         for(let entry of this.data){
             if(date.getTime() >= entry.startDate.getTime()
                 && date.getTime() <= entry.endDate.getTime()){
-                result.push(entry.location);
+                result.push(entry);
             }
         }
         return result;

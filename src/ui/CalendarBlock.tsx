@@ -3,6 +3,7 @@ import Day from '../model/time/Day';
 import DataStore from '../business/data/DataStore';
 import Locations from './Locations';
 import Entry from '../model/data/Entry';
+import WebAppSettingsStore from '../business/WebAppSettingsStore';
 
 interface ICalendarBlockProps{
     day : Day;
@@ -10,24 +11,40 @@ interface ICalendarBlockProps{
 
 interface ICalendarBlockState{
     entries : Entry[];
+    mobileMode : boolean;
 }
 
 export default class CalendarBlock extends React.Component<ICalendarBlockProps, ICalendarBlockState>{
+    mobileModeSubscription ?: number;
+    
     constructor(props : ICalendarBlockProps){
         super(props);
 
-        this.state = this.getState();
+        this.state = {
+            entries : DataStore.getEntriesForDate(this.props.day.toDate()),
+            mobileMode : WebAppSettingsStore.getMobileMode().getValue()
+        };
     }
 
-    getState = () => {
-        return {
-            entries : DataStore.getEntriesForDate(this.props.day.toDate())
-        };
+    componentDidMount(){
+        this.mobileModeSubscription = WebAppSettingsStore.getMobileMode()
+            .subscribeToValue((mobileMode) => {
+                this.setState({mobileMode})
+            });
+    }
+
+    componentWillUnmount(){
+        if(this.mobileModeSubscription != null){
+            WebAppSettingsStore.getMobileMode().unsubscribe(this.mobileModeSubscription);
+            this.mobileModeSubscription = undefined;
+        }
     }
 
     componentDidUpdate(previousProps : ICalendarBlockProps){
         if (previousProps.day.toDate().getTime() !== this.props.day.toDate().getTime()){
-            this.setState(this.getState());
+            this.setState({
+                entries : DataStore.getEntriesForDate(this.props.day.toDate())
+            });
         }
     }
 
@@ -38,7 +55,8 @@ export default class CalendarBlock extends React.Component<ICalendarBlockProps, 
             <div className={`calendar-grid-item calendar-block ${todayClassName}`}
                 style={{background : this.computeGradient()}}>
                 {this.props.day.asNumber()}
-                <Locations locations={this.state.entries.map(e => e.location)} />
+                {!this.state.mobileMode && 
+                    <Locations locations={this.state.entries.map(e => e.location)} />}
             </div>
         );
     }

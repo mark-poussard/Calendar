@@ -14,8 +14,8 @@ export default class CalendarNavigation extends React.Component<ICalendarNavigat
     render(){
         return (
             <div>
-                <a onClick={this.doPreviousMonth}>Previous month</a>
-                <a onClick={this.doNextMonth}>Next month</a>
+                <button onClick={this.doPreviousMonth}>Previous month</button>
+                <button onClick={this.doNextMonth}>Next month</button>
             </div>
         )
     }

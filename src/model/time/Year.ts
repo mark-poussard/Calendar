@@ -1,6 +1,6 @@
 
 export default class Year{
-    year : number;
+    private year : number;
 
     constructor(year : number){
         this.year = year;
@@ -15,5 +15,9 @@ export default class Year{
     isLeapYear = () => {
         return (this.year % 4 === 0 && this.year%100 !== 0) 
                 || (this.year%100 === 0 && this.year%400 === 0);
+    }
+
+    equals = (that : Year) => {
+        return this.year === that.year;
     }
 }

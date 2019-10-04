@@ -1,5 +1,6 @@
 import Entry from "../../model/data/Entry";
 import DataGetter from "./DataGetter";
+import Month from "../../model/time/Month";
 
 class DataStore{
 
@@ -37,6 +38,21 @@ class DataStore{
         for(let entry of this.data){
             if(date.getTime() >= entry.startDate.getTime()
                 && date.getTime() <= entry.endDate.getTime()){
+                result.push(entry);
+            }
+        }
+        return result;
+    }
+
+    getEntriesForMonth = (month : Month) => {
+        if(this.data == null){
+            throw new Error("Data was not ready to consume");
+        }
+        const result = [];
+        for(let entry of this.data){
+            const outsideLeft = entry.endDate.getTime() < month.getStartDate().getTime();
+            const outsideRight = entry.startDate.getTime() > month.getEndDate().getTime();
+            if(!outsideLeft && !outsideRight){
                 result.push(entry);
             }
         }

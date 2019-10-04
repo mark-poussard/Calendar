@@ -74,6 +74,8 @@ export const Days = {
                 return "Saturday";
             case Days.SUNDAY :
                 return "Sunday";
+            default :
+                return "";
         }
     },
 

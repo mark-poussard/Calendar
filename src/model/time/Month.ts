@@ -74,6 +74,20 @@ export default class Month{
             .map(d => new Day(this.year.asNumber(), this.month, d));
     }
 
+    public getStartDate = () => {
+        return new Date(Date.UTC(
+            this.getYear().asNumber(), 
+            this.asNumber(),
+            1));
+    }
+
+    public getEndDate = () => {
+        return new Date(Date.UTC(
+            this.getYear().asNumber(), 
+            this.asNumber(),
+            this.getNumberOfDays()));
+    }
+
     public getYear = () => {
         return this.year;
     }
@@ -96,6 +110,11 @@ export default class Month{
             nextMonthYear -= 1;
         }
         return new Month(nextMonthYear, nextMonth);
+    }
+
+    public equals = (that : Month) => {
+        return this.month === that.month
+                && this.getYear().equals(that.getYear());
     }
 }
 

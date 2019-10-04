@@ -14,8 +14,7 @@ export default class LocationColour extends React.Component<ILocationColourProps
         return (
             <div style={{
                 backgroundColor: Color.fromString(this.props.location).toCssString(),
-                border: "1px solid black",
-                width: "25%"
+                border: "1px solid black"
             }}>
                 {this.props.location}
             </div>

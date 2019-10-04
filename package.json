@@ -1,7 +1,7 @@
 {
   "name": "calendar",
   "version": "0.1.0",
-  "homepage": "http://mark-poussard.github.io/",
+  "homepage": "https://mark-poussard.github.io/calendar/",
   "private": true,
   "dependencies": {
     "@types/jest": "23.3.10",

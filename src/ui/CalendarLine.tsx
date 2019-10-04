@@ -58,7 +58,7 @@ export default class CalendarLine extends React.Component<ICalendarLineProps>{
     renderDays = () => {
         const result : JSX.Element[] = [];
         for(let day of this.props.days){
-            result.push(<CalendarBlock key={`DAY_${day.asNumber()}`} day={day}/>);
+            result.push(<CalendarBlock key={`${day.getYear().asNumber()}-${day.getMonth().asNumber()}-${day.asNumber()}`} day={day}/>);
         }
         return result;
     }

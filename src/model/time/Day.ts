@@ -29,6 +29,14 @@ export default class Day{
         return this.day;
     }
 
+    getMonth = () => {
+        return this.month;
+    }
+
+    getYear = () => {
+        return this.year;
+    }
+
     isToday = () => {
         const now = new Date();
         return now.getFullYear() === this.year.asNumber()

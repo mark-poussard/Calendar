@@ -1,0 +1,79 @@
+.calendar-body{
+
+}
+
+.calendar-body .calendar-grid-item{
+    width: calc(12vw - 2px);
+    display: inline-block;
+    >.calendar-grid-item-number {
+        text-align: right;
+        margin-right: 5px;
+    }
+    >.entry {
+        height: 1em;
+    }
+}
+
+.calendar-body .calendar-block{
+    height: 6vw;
+}
+
+.calendar-body .calendar-block.today{
+    color: red;
+}
+
+.calendar-wrapper {
+    width: 84vw;
+    position: relative;
+    text-align: center;
+    margin: 0 8vw;
+    >.calendar-header {
+        >.current-month {
+            font-size: xxx-large;
+            margin-bottom: 50px;
+        }
+        >.calendar-navigation {
+            position: absolute;
+            width: 84vw;
+            >button {
+                border: none;
+                background-color: transparent;
+                font-size: xxx-large;
+                cursor: pointer;
+            }
+            >.button-previous {
+                float: left;
+            }
+            >.button-next {
+                float: right;
+            }
+        }
+
+        >.day-legend {
+            position: relative;
+            >.calendar-legend{
+                width: calc(12vw - 2px);
+                display: inline-block;
+                font-size: x-large;
+            }
+            >.days-underline {
+                height: 4px;
+                background-color: var(--color-pink);
+                width: 100vw;
+                position: absolute;
+                bottom: -4px;
+                left: -8vw;
+            }
+        }
+    }
+}
+
+.triangle-bottomright {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 75vh solid var(--color-pink);
+    border-left: 62vw solid transparent;
+}

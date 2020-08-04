@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import Calendar from './ui/Calendar';
 import DataStore from './business/data/DataStore';
 
@@ -35,6 +35,7 @@ export default class App extends React.Component<IAppProps, IAppState>{
     }
     return (
       <div>
+        <div className={'triangle-bottomright'}></div>
         <Calendar />
       </div>
     );

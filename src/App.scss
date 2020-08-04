@@ -1,3 +1,11 @@
+@import './color.scss';
+
+@font-face {
+  font-family: Kiona;
+  font-display: swap;
+  src: url('/fonts/Kiona-Regular.ttf') format('ttf');
+}
+
 .App {
   text-align: center;
 }

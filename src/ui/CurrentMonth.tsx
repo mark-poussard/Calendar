@@ -12,7 +12,7 @@ export default class CurrentMonth extends React.Component<ICurrentMonthProps>{
 
     render(){
         return (
-            <div>
+            <div className={'current-month'}>
                 {this.props.month.asString() + ` `}
                 {this.props.month.getYear().asNumber()}
             </div>

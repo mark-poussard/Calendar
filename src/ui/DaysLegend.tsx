@@ -43,8 +43,9 @@ export default class DaysLegend extends React.Component<IDaysLegendProps, IDaysL
             dayLegend.push(this.renderDay(day));
         }
         return (
-            <div>
+            <div className={'day-legend'}>
                 {dayLegend}
+                <div className={'days-underline'}></div>
             </div>
         )
     }

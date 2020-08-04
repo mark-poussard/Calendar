@@ -3,7 +3,7 @@ import Month from '../model/time/Month';
 import CalendarBody from './CalendarBody';
 import CalendarHeader from './CalendarHeader';
 import CalendarNavigation from './CalendarNavigation';
-import './Calendar.css';
+import './Calendar.scss';
 import WebAppSettingsStore from '../business/WebAppSettingsStore';
 import ColoursLegend from './coloursLegend/ColoursLegend';
 
@@ -44,10 +44,9 @@ export default class Calendar extends React.Component<ICalendarProps, ICalendarS
 
     render(){
         return (
-            <div>
-                <CalendarHeader month={this.state.month} />
+            <div className={'calendar-wrapper'}>
+                <CalendarHeader month={this.state.month} setMonth={this.setMonth}/>
                 <CalendarBody month={this.state.month} />
-                <CalendarNavigation month={this.state.month} setMonth={this.setMonth} />
                 {this.state.mobileMode 
                     && <ColoursLegend month={this.state.month} />}
             </div>

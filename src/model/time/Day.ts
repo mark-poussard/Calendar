@@ -61,19 +61,19 @@ export const Days = {
     asString : (day : number) => {
         switch(day){
             case Days.MONDAY :
-                return "Monday";
+                return "MON";
             case Days.TUESDAY :
-                return "Tuesday";
+                return "TUE";
             case Days.WEDNESDAY :
-                return "Wednesday";
+                return "WED";
             case Days.THURSDAY :
-                return "Thursday";
+                return "THU";
             case Days.FRIDAY :
-                return "Friday";
+                return "FRI";
             case Days.SATURDAY :
-                return "Saturday";
+                return "SAT";
             case Days.SUNDAY :
-                return "Sunday";
+                return "SUN";
             default :
                 return "";
         }

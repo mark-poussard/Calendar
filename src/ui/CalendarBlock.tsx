@@ -53,12 +53,28 @@ export default class CalendarBlock extends React.Component<ICalendarBlockProps, 
 
         return (
             <div className={`calendar-grid-item calendar-block ${todayClassName}`}
-                style={{background : this.computeGradient()}}>
-                {this.props.day.asNumber()}
-                {!this.state.mobileMode && 
-                    <Locations locations={this.state.entries.map(e => e.location)} />}
+                // style={{background : this.computeGradient()}}
+                >
+                <div className={'calendar-grid-item-number'}>
+                    {this.props.day.asNumber()}
+                </div>
+                {this.state.entries.map(t => 
+                    <div className={`entry ${t.location}`}
+                        style={{backgroundColor : t.getColor().toCssString()}}>
+                        {this.isFirstOrLastDate(t, this.props.day) && t.location}
+                    </div>
+                )}
+                {/* {!this.state.mobileMode && 
+                    <Locations locations={this.state.entries.map(e => e.location)} />} */}
             </div>
         );
+    }
+
+    isFirstOrLastDate = (entry : Entry, date : Day) => {
+        if (date.toDate().getTime() == entry.startDate.getTime() || date.toDate().getTime() == entry.endDate.getTime()) {
+            return true;
+        }
+        return false;
     }
 
     computeGradient = () => {

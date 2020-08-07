@@ -7,6 +7,7 @@ import CalendarNavigation from './CalendarNavigation';
 interface ICalendarHeaderProps{
     month : Month;
     setMonth : (month : Month) => void;
+    monthColor : string;
 }
 
 export default class CalendarHeader extends React.Component<ICalendarHeaderProps>{
@@ -19,7 +20,7 @@ export default class CalendarHeader extends React.Component<ICalendarHeaderProps
             <div className={`calendar-header`}>
                 <CalendarNavigation month={this.props.month} setMonth={this.props.setMonth}/>
                 <CurrentMonth month={this.props.month} />
-                <DaysLegend />
+                <DaysLegend monthColor={this.props.monthColor}/>
             </div>
         );
     }

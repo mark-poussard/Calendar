@@ -36,8 +36,8 @@ export default class App extends React.Component<IAppProps, IAppState>{
     }
     return (
       <div>
-        <div className={'triangle-bottomright'}></div>
-        <Circle/>
+        {/* <div className={'triangle-bottomright'}></div>
+        <Circle/> */}
         <Calendar />
       </div>
     );

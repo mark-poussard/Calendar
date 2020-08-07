@@ -4,7 +4,7 @@ import { Days } from '../model/time/Day';
 import WebAppSettingsStore from '../business/WebAppSettingsStore';
 
 interface IDaysLegendProps{
-
+    monthColor : string;
 }
 
 interface IDaysLegendState{
@@ -45,7 +45,7 @@ export default class DaysLegend extends React.Component<IDaysLegendProps, IDaysL
         return (
             <div className={'day-legend'}>
                 {dayLegend}
-                <div className={'days-underline'}></div>
+                <div className={'days-underline'} style={{ backgroundColor : `${this.props.monthColor}`}}></div>
             </div>
         )
     }

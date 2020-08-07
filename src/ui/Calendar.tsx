@@ -6,6 +6,7 @@ import CalendarBody from './CalendarBody';
 import CalendarHeader from './CalendarHeader';
 import ColoursLegend from './coloursLegend/ColoursLegend';
 import MonthRecap from './MonthRecap';
+import Circle from './Circle';
 
 interface ICalendarProps{
     
@@ -43,18 +44,31 @@ export default class Calendar extends React.Component<ICalendarProps, ICalendarS
     }
 
     render(){
+        const monthColor = this.getMonthColor(this.state.month);
         return (
+        <>
+            <div className={'triangle-bottomright'} style={{ borderBottom: `75vh solid ${monthColor}`}}></div>
+            <Circle monthColor={monthColor}/>
             <div className={'calendar-wrapper'}>
-                <CalendarHeader month={this.state.month} setMonth={this.setMonth}/>
+                <CalendarHeader month={this.state.month} setMonth={this.setMonth} monthColor={monthColor}/>
                 <CalendarBody month={this.state.month} />
                 {this.state.mobileMode 
                     && <ColoursLegend month={this.state.month} />}
                 <MonthRecap month={this.state.month} />
             </div>
+        </>
         );
     }
 
     setMonth = (month : Month) => {
         this.setState({month});
+    }
+
+    getMonthColor = (month : Month) => {
+        const color = [
+            '--color-pink', '--color-yellow', '--color-green', '--color-purple', '--color-grey', '--color-blue',
+            '--color-manatee', '--color-tumbleweed', '--color-sage', '--color-cadet-grey', '--color-wild-blue-yonder', '--color-peter-blue '
+        ][month.asNumber()];
+        return `var(${color})`;
     }
 }

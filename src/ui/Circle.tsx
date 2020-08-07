@@ -1,9 +1,13 @@
 import React from 'react';
 import './Circle.scss';
 
-const Circle : React.FC = props => {
+interface ICircleProps {
+    monthColor : string;
+}
+
+const Circle : React.FC<ICircleProps> = props => {
     return(
-        <div className={`circle`}></div>
+        <div className={`circle`} style={{ backgroundColor: props.monthColor}}></div>
     );
 }
 

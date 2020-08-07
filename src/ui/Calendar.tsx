@@ -7,6 +7,7 @@ import CalendarHeader from './CalendarHeader';
 import ColoursLegend from './coloursLegend/ColoursLegend';
 import MonthRecap from './MonthRecap';
 import Circle from './Circle';
+import Color from '../model/Color';
 
 interface ICalendarProps{
     
@@ -65,10 +66,7 @@ export default class Calendar extends React.Component<ICalendarProps, ICalendarS
     }
 
     getMonthColor = (month : Month) => {
-        const color = [
-            '--color-pink', '--color-yellow', '--color-green', '--color-purple', '--color-grey', '--color-blue',
-            '--color-manatee', '--color-tumbleweed', '--color-sage', '--color-cadet-grey', '--color-wild-blue-yonder', '--color-peter-blue '
-        ][month.asNumber()];
+        const color = Color.COLORS[month.asNumber()];
         return `var(${color})`;
     }
 }

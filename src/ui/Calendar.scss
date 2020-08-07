@@ -60,7 +60,6 @@
             }
             >.days-underline {
                 height: 4px;
-                // background-color: var(--color-pink);
                 width: 100vw;
                 position: absolute;
                 bottom: -4px;
@@ -76,6 +75,5 @@
     bottom: 0;
     width: 0;
     height: 0;
-    // border-bottom: 75vh solid var(--color-pink);
     border-left: 62vw solid transparent;
 }

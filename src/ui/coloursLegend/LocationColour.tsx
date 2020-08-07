@@ -13,7 +13,7 @@ export default class LocationColour extends React.Component<ILocationColourProps
     render(){
         return (
             <div style={{
-                backgroundColor: Color.fromString(this.props.location).toCssString(),
+                backgroundColor: Color.fromString(this.props.location),
                 border: "1px solid black"
             }}>
                 {this.props.location}

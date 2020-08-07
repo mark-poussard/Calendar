@@ -2,6 +2,14 @@ export function range(size : number, startAt = 0) {
     return [...(Array(size) as any).keys()].map(i => parseInt(i) + startAt);
 }
 
+export function stringToHash(str : string) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return Math.abs(hash);
+}
+
 // From https://stackoverflow.com/a/16348977
 export function stringToHexColour(str : string) {
     let hash = 0;

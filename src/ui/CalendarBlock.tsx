@@ -1,9 +1,8 @@
 import React from 'react';
-import Day from '../model/time/Day';
 import DataStore from '../business/data/DataStore';
-import Locations from './Locations';
-import Entry from '../model/data/Entry';
 import WebAppSettingsStore from '../business/WebAppSettingsStore';
+import Entry from '../model/data/Entry';
+import Day from '../model/time/Day';
 
 interface ICalendarBlockProps{
     day : Day;
@@ -52,15 +51,13 @@ export default class CalendarBlock extends React.Component<ICalendarBlockProps, 
         const todayClassName = (this.props.day.isToday()) ? "today" : "";
 
         return (
-            <div className={`calendar-grid-item calendar-block ${todayClassName}`}
-                // style={{background : this.computeGradient()}}
-                >
+            <div className={`calendar-grid-item calendar-block ${todayClassName}`}>
                 <div className={'calendar-grid-item-number'}>
                     {this.props.day.asNumber()}
                 </div>
                 {this.state.entries.map(t => 
                     <div className={`entry ${t.location}`}
-                        style={{backgroundColor : t.getColor().toCssString()}}>
+                        style={{backgroundColor : t.getColor()}}>
                         {this.isFirstOrLastDate(t, this.props.day) && t.location}
                     </div>
                 )}
@@ -86,8 +83,8 @@ export default class CalendarBlock extends React.Component<ICalendarBlockProps, 
             if(!isFirst){
                 result += ", ";
             }
-            result += entry.getColor().toCssString() + " " + gradualPercentage + "%"
-                    + ", " + entry.getColor().toCssString() 
+            result += entry.getColor() + " " + gradualPercentage + "%"
+                    + ", " + entry.getColor()
                         + " " + (gradualPercentage + percentageIncrementor) + "%";
             gradualPercentage += percentageIncrementor;
             isFirst = false;

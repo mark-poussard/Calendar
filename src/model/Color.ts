@@ -1,4 +1,4 @@
-import { stringToHexColour } from "../business/utility/Util";
+import { stringToHexColour, stringToHash } from "../business/utility/Util";
 
 export default class Color{
     red : number;
@@ -36,6 +36,11 @@ export default class Color{
     static BLUE = new Color(0, 0, 255, 1);
     static GRAY = new Color(128, 128, 128, 1);
 
+    static COLORS = [
+        '--color-pink', '--color-yellow', '--color-green', '--color-purple', '--color-grey', '--color-blue',
+        '--color-manatee', '--color-tumbleweed', '--color-sage', '--color-cadet-grey', '--color-wild-blue-yonder', '--color-peter-blue '
+    ];
+
     static fromHexString = (hexString : string) => {
         const red = parseInt(hexString.substr(1, 2), 16);
         const green = parseInt(hexString.substr(3, 2), 16);
@@ -44,6 +49,10 @@ export default class Color{
     }
 
     static fromString = (str : string) => {
-        return Color.fromHexString(stringToHexColour(str));
+        const hash = stringToHash(str);
+        console.log(hash);
+        console.log(Color.COLORS.length);
+        console.log(hash % Color.COLORS.length);
+        return `var(${Color.COLORS[hash % Color.COLORS.length]})`;
     }
 }

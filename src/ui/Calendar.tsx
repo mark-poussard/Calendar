@@ -1,11 +1,11 @@
 import React from 'react';
+import WebAppSettingsStore from '../business/WebAppSettingsStore';
 import Month from '../model/time/Month';
+import './Calendar.scss';
 import CalendarBody from './CalendarBody';
 import CalendarHeader from './CalendarHeader';
-import CalendarNavigation from './CalendarNavigation';
-import './Calendar.scss';
-import WebAppSettingsStore from '../business/WebAppSettingsStore';
 import ColoursLegend from './coloursLegend/ColoursLegend';
+import MonthRecap from './MonthRecap';
 
 interface ICalendarProps{
     
@@ -49,6 +49,7 @@ export default class Calendar extends React.Component<ICalendarProps, ICalendarS
                 <CalendarBody month={this.state.month} />
                 {this.state.mobileMode 
                     && <ColoursLegend month={this.state.month} />}
+                <MonthRecap month={this.state.month} />
             </div>
         );
     }

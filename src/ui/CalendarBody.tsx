@@ -3,7 +3,6 @@ import Month from '../model/time/Month';
 import Day, { Days } from '../model/time/Day';
 import CalendarLine from './CalendarLine';
 import EmptyCalendarLine from './EmptyCalendarLine';
-import CalendarSpace from './CalendarSpace';
 
 interface ICalendarBodyProps{
     month : Month;

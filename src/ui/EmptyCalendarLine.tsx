@@ -4,7 +4,7 @@ import CalendarSpace from './CalendarSpace';
 export default class EmptyCalendarLine extends React.Component{
     render(){
         return(
-            <div style={{height: "9vw", border:"transparent 1px solid"}}>
+            <div style={{height: "6vw", border:"transparent 1px solid"}}>
                 {this.renderEmptyLine()}
             </div>
         )

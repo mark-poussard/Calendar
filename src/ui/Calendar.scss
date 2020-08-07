@@ -1,5 +1,5 @@
 .calendar-body{
-
+    background: linear-gradient(to right, var(--color-almost-white), var(--color-almost-white) 25%, transparent 25%, transparent 100%);
 }
 
 .calendar-body .calendar-grid-item{
@@ -16,6 +16,7 @@
 
 .calendar-body .calendar-block{
     height: 6vw;
+    vertical-align: top;
 }
 
 .calendar-body .calendar-block.today{
@@ -51,6 +52,7 @@
 
         >.day-legend {
             position: relative;
+            background-color: var(--color-almost-white);
             >.calendar-legend{
                 width: calc(12vw - 2px);
                 display: inline-block;

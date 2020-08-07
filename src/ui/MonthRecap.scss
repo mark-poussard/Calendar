@@ -1,0 +1,27 @@
+.month-recap {
+    border: solid 2px var(--color-almost-white );
+    padding: 1em;
+    bottom: 2em;
+    right: 8vw;
+    position: fixed;
+    >.month-recap-group {
+        display: inline-block;
+        vertical-align: top;
+        width: 25vw;
+        >.month-recap-entry {
+            >.left {
+                display: inline-block;
+                vertical-align: top;
+                width: 47.5%;
+                margin-right: 5%;
+                text-align: right;
+            }
+            >.right {
+                display: inline-block;
+                vertical-align: top;
+                width: 47.5%;
+                text-align: left;
+            }
+        }
+    }
+}

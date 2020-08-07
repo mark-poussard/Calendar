@@ -2,6 +2,7 @@ import React from 'react';
 import './App.scss';
 import Calendar from './ui/Calendar';
 import DataStore from './business/data/DataStore';
+import Circle from './ui/Circle';
 
 interface IAppProps{
 
@@ -36,6 +37,7 @@ export default class App extends React.Component<IAppProps, IAppState>{
     return (
       <div>
         <div className={'triangle-bottomright'}></div>
+        <Circle/>
         <Calendar />
       </div>
     );

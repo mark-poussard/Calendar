@@ -40,6 +40,8 @@
 @media (max-width: 599px) {
     .month-recap {
         width: calc(84vw - 2em);
+        padding: 0.5em;
+        bottom: 1em;
         >.month-recap-group {
             width: 100%;
             >.month-recap-entry {

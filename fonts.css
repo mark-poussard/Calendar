@@ -1,0 +1,29 @@
+@font-face {
+    font-family: Kiona;
+    font-display: swap;
+    src: url('fonts/Kiona-Regular.woff') format('woff'),
+         url('fonts/Kiona-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Kiona;
+    font-display: swap;
+    font-style: italic;
+    src: url('fonts/Kiona-Itallic.woff') format('woff'),
+         url('fonts/Kiona-Itallic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Timeless;
+    font-display: swap;
+    src: url('fonts/Timeless.woff') format('woff'),
+         url('fonts/Timeless.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Timeless;
+    font-display: swap;
+    font-weight: bold;
+    src: url('fonts/Timeless-Bold.woff') format('woff'),
+         url('fonts/Timeless-Bold.ttf') format('truetype');
+}

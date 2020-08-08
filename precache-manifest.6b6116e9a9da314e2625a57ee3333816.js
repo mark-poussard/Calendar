@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "e00aed6eab442a04c017",
-    "url": "/calendar/static/css/main.419f5223.chunk.css"
+    "revision": "c569df779cce34a9c016",
+    "url": "/calendar/static/css/main.8cf3560e.chunk.css"
   },
   {
-    "revision": "e00aed6eab442a04c017",
-    "url": "/calendar/static/js/main.e00aed6e.chunk.js"
+    "revision": "c569df779cce34a9c016",
+    "url": "/calendar/static/js/main.c569df77.chunk.js"
   },
   {
     "revision": "634b7c7a729c7da9ce97",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/calendar/static/js/runtime~main.d8c9fae7.js"
   },
   {
-    "revision": "bad528c786d28ea3b2defdd4fd0e4756",
+    "revision": "238a93a3de4757aae72b96fff9cc9c95",
     "url": "/calendar/index.html"
   }
 ];

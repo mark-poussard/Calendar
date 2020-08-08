@@ -50,9 +50,6 @@ export default class Color{
 
     static fromString = (str : string) => {
         const hash = stringToHash(str);
-        console.log(hash);
-        console.log(Color.COLORS.length);
-        console.log(hash % Color.COLORS.length);
         return `var(${Color.COLORS[hash % Color.COLORS.length]})`;
     }
 }

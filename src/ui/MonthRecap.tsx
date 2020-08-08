@@ -20,6 +20,9 @@ const MonthRecap : React.FC<IMonthRecapProps> = props => {
                 <div className={`month-recap-group`}>
                     {v.map(t =>
                         <div className={'month-recap-entry'}>
+                            <div className={`background`} style={{
+                                backgroundColor : t.getColor()
+                            }}/>
                             <div className={`left`}>{getDateWithFormat(t.startDate)} - {getDateWithFormat(t.endDate)}</div> 
                             <div className={`right`}>{t.location.toUpperCase()}</div>
                         </div>)}

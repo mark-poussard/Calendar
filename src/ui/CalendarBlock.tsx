@@ -1,6 +1,5 @@
 import React from 'react';
 import DataStore from '../business/data/DataStore';
-import WebAppSettingsStore from '../business/WebAppSettingsStore';
 import Entry from '../model/data/Entry';
 import Day from '../model/time/Day';
 
@@ -10,7 +9,6 @@ interface ICalendarBlockProps{
 
 interface ICalendarBlockState{
     entries : Entry[];
-    mobileMode : boolean;
 }
 
 export default class CalendarBlock extends React.Component<ICalendarBlockProps, ICalendarBlockState>{
@@ -20,23 +18,8 @@ export default class CalendarBlock extends React.Component<ICalendarBlockProps, 
         super(props);
 
         this.state = {
-            entries : DataStore.getEntriesForDate(this.props.day.toDate()),
-            mobileMode : WebAppSettingsStore.getMobileMode().getValue()
+            entries : DataStore.getEntriesForDate(this.props.day.toDate())
         };
-    }
-
-    componentDidMount(){
-        this.mobileModeSubscription = WebAppSettingsStore.getMobileMode()
-            .subscribeToValue((mobileMode) => {
-                this.setState({mobileMode})
-            });
-    }
-
-    componentWillUnmount(){
-        if(this.mobileModeSubscription != null){
-            WebAppSettingsStore.getMobileMode().unsubscribe(this.mobileModeSubscription);
-            this.mobileModeSubscription = undefined;
-        }
     }
 
     componentDidUpdate(previousProps : ICalendarBlockProps){
@@ -58,11 +41,9 @@ export default class CalendarBlock extends React.Component<ICalendarBlockProps, 
                 {this.state.entries.map(t => 
                     <div className={`entry ${t.location}`}
                         style={{backgroundColor : t.getColor()}}>
-                        {this.isFirstOrLastDate(t, this.props.day) && t.location}
+                        {this.isFirstOrLastDate(t, this.props.day) && <span className={`location`}>{t.location}</span>}
                     </div>
                 )}
-                {/* {!this.state.mobileMode && 
-                    <Locations locations={this.state.entries.map(e => e.location)} />} */}
             </div>
         );
     }

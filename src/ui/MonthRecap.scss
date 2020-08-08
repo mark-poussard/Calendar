@@ -9,6 +9,16 @@
         vertical-align: top;
         width: 25vw;
         >.month-recap-entry {
+            position: relative;
+            >.background {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                display: none;
+                z-index: -1;
+            }
             >.left {
                 display: inline-block;
                 vertical-align: top;
@@ -21,6 +31,21 @@
                 vertical-align: top;
                 width: 47.5%;
                 text-align: left;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 599px) {
+    .month-recap {
+        width: calc(84vw - 2em);
+        >.month-recap-group {
+            width: 100%;
+            >.month-recap-entry {
+                >.background {
+                    display: block;
+                }
             }
         }
     }

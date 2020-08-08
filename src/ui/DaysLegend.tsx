@@ -1,14 +1,12 @@
 import React from 'react';
 import CalendarOptions from '../model/CalendarOptions';
 import { Days } from '../model/time/Day';
-import WebAppSettingsStore from '../business/WebAppSettingsStore';
 
 interface IDaysLegendProps{
     monthColor : string;
 }
 
 interface IDaysLegendState{
-    mobileMode : boolean;
 }
 
 export default class DaysLegend extends React.Component<IDaysLegendProps, IDaysLegendState>{
@@ -16,24 +14,6 @@ export default class DaysLegend extends React.Component<IDaysLegendProps, IDaysL
 
     constructor(props : IDaysLegendProps){
         super(props);
-
-        this.state = {
-            mobileMode : WebAppSettingsStore.getMobileMode().getValue()
-        }
-    }
-
-    componentDidMount(){
-        this.mobileModeSubscription = WebAppSettingsStore.getMobileMode()
-            .subscribeToValue((mobileMode) => {
-                this.setState({mobileMode});
-            });
-    }
-
-    componentWillUnmount(){
-        if(this.mobileModeSubscription != null){
-            WebAppSettingsStore.getMobileMode().unsubscribe(this.mobileModeSubscription);
-            this.mobileModeSubscription = undefined;
-        }
     }
 
     render(){
@@ -51,9 +31,7 @@ export default class DaysLegend extends React.Component<IDaysLegendProps, IDaysL
     }
 
     renderDay = (day : number) => {
-        const dayAsString = (this.state.mobileMode)
-            ? (Days.asString(day).substring(0, 3) + ".")
-            : (Days.asString(day));
+        const dayAsString = Days.asString(day);
         return (
             <div key={`DAY_LEGEND_${day}`} className={`calendar-legend`}>
                 {dayAsString}

@@ -83,6 +83,11 @@
     .calendar-body{
         background: linear-gradient(to bottom right, var(--color-almost-white), var(--color-almost-white) 70%, transparent 70%, transparent 100%);
     }
+
+    .calendar-body .calendar-grid-item{
+        width: calc(12vw - 2px);
+    }
+
     .calendar-wrapper {
         width: 84vw;
         margin: 0 8vw;
@@ -101,6 +106,7 @@
             >.day-legend {
                 >.calendar-legend{
                     font-size: medium;
+                    width: calc(12vw - 2px);
                 }
             }
         }
@@ -115,5 +121,6 @@
     .triangle-bottomright {
         border-left-width: 80vw;
         border-bottom-width: 50vh;
+        z-index: -1;
     }
 }

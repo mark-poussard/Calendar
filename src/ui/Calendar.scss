@@ -81,7 +81,8 @@
 
 @media (max-width: 599px) {
     .calendar-body{
-        background: linear-gradient(to bottom right, var(--color-almost-white), var(--color-almost-white) 70%, transparent 70%, transparent 100%);
+        background-color: transparent;
+        background: transparent;
     }
 
     .calendar-body .calendar-grid-item{

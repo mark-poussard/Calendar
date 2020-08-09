@@ -2,16 +2,23 @@ import React from 'react';
 import './Home.scss';
 import Circle from '../Circle';
 import Screen from '../Screen/Screen';
+import Month from '../../model/time/Month';
+import Color from '../../model/Color';
 
 interface IHomeProps {
-    monthColor : string;
+    month : Month;
 }
 
 const Home : React.FC<IHomeProps> = props => {
+    const getMonthColor = (month : Month) => {
+        const color = Color.COLORS[month.asNumber()];
+        return `var(${color})`;
+    }
+    const monthColor = getMonthColor(props.month);
     return (
         <Screen className={`home`}>
-            <div className={'triangle-topleft'} style={{ borderTopColor: `${props.monthColor}`}}></div>
-            <Circle monthColor={props.monthColor} top="" left="" bottom="1vw" right="5vw"/>
+            <div className={'triangle-topleft'} style={{ borderTopColor: `${monthColor}`}}></div>
+            <Circle monthColor={monthColor} top="" left="" bottom="1vw" right="5vw"/>
             <div className={'home-wrapper'}>
                 <div className={`left-mock`}></div>
                 <div className={`left`}>

@@ -9,11 +9,11 @@ import MonthRecap from './MonthRecap';
 import Screen from './Screen/Screen';
 
 interface ICalendarProps{
-    
+    month : Month;
+    setMonth : (month : Month) => void;
 }
 
 interface ICalendarState{
-    month : Month;
 }
 
 export default class Calendar extends React.Component<ICalendarProps, ICalendarState>{
@@ -23,27 +23,22 @@ export default class Calendar extends React.Component<ICalendarProps, ICalendarS
         super(props);
 
         this.state = {
-            month : Month.getCurrentMonth()
         }
     }
 
     render(){
-        const monthColor = this.getMonthColor(this.state.month);
+        const monthColor = this.getMonthColor(this.props.month);
         return (
         <Screen className=''>
             <div className={'triangle-bottomright'} style={{ borderBottomColor: `${monthColor}`}}></div>
             <Circle monthColor={monthColor} top="1vw" left="5vw" bottom="" right=""/>
-            <MonthRecap month={this.state.month} />
+            <MonthRecap month={this.props.month} />
             <div className={'calendar-wrapper'}>
-                <CalendarHeader month={this.state.month} setMonth={this.setMonth} monthColor={monthColor}/>
-                <CalendarBody month={this.state.month} />
+                <CalendarHeader month={this.props.month} setMonth={this.props.setMonth} monthColor={monthColor}/>
+                <CalendarBody month={this.props.month} />
             </div>
         </Screen>
         );
-    }
-
-    setMonth = (month : Month) => {
-        this.setState({month});
     }
 
     getMonthColor = (month : Month) => {

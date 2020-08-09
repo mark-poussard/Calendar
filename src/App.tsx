@@ -3,6 +3,7 @@ import './App.scss';
 import DataStore from './business/data/DataStore';
 import Calendar from './ui/Calendar';
 import Home from './ui/Home/Home';
+import Month from './model/time/Month';
 
 interface IAppProps{
 
@@ -10,6 +11,7 @@ interface IAppProps{
 
 interface IAppState{
   loading : boolean;
+  month : Month;
 }
 
 export default class App extends React.Component<IAppProps, IAppState>{
@@ -17,13 +19,18 @@ export default class App extends React.Component<IAppProps, IAppState>{
     super(props);
 
     this.state = {
-      loading : true
+      loading : true,
+      month : Month.getCurrentMonth()
     };
   }
 
   componentDidMount(){
     DataStore.init();
     DataStore.onDataReady(() => this.setState({loading : false}));
+  }
+
+  setMonth = (month : Month) => {
+    this.setState({month});
   }
 
   render() {
@@ -36,8 +43,8 @@ export default class App extends React.Component<IAppProps, IAppState>{
     }
     return (
       <div>
-        <Home monthColor='var(--color-pink)' />
-        <Calendar />
+        <Home month={this.state.month} />
+        <Calendar month={this.state.month} setMonth={this.setMonth}/>
       </div>
     );
   }

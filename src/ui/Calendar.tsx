@@ -6,6 +6,7 @@ import CalendarBody from './CalendarBody';
 import CalendarHeader from './CalendarHeader';
 import Circle from './Circle';
 import MonthRecap from './MonthRecap';
+import Screen from './Screen/Screen';
 
 interface ICalendarProps{
     
@@ -29,15 +30,15 @@ export default class Calendar extends React.Component<ICalendarProps, ICalendarS
     render(){
         const monthColor = this.getMonthColor(this.state.month);
         return (
-        <>
+        <Screen className=''>
             <div className={'triangle-bottomright'} style={{ borderBottomColor: `${monthColor}`}}></div>
-            <Circle monthColor={monthColor}/>
+            <Circle monthColor={monthColor} top="1vw" left="5vw" bottom="" right=""/>
+            <MonthRecap month={this.state.month} />
             <div className={'calendar-wrapper'}>
                 <CalendarHeader month={this.state.month} setMonth={this.setMonth} monthColor={monthColor}/>
                 <CalendarBody month={this.state.month} />
-                <MonthRecap month={this.state.month} />
             </div>
-        </>
+        </Screen>
         );
     }
 

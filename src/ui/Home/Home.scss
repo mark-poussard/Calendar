@@ -1,0 +1,81 @@
+.home {
+    color: var(--color-almost-black);
+    >.triangle-topleft {
+        width: 0;
+        height: 0;
+        border-top: 75vh solid black;
+        border-right: 62vw solid transparent;
+        position: absolute;
+        z-index: -1;
+    }
+    >.home-wrapper {
+        width: 70vw;
+        position: absolute;
+        text-align: center;
+        margin: 0 15vw;
+        top: 50%;
+        transform: translateY(-50%);
+        a {
+            text-decoration: none;
+            color: var(--color-almost-black);
+        }
+        >.left-mock {
+            width: 50%;
+            display: inline-block;
+            vertical-align: top;
+        }
+        >.left {
+            display: inline-block;
+            vertical-align: top;
+            width: 50%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            >.photo {
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                height: 100%;
+            }
+            >.credit {
+                width: 100%;
+                text-align: right;
+                font-family: Timeless;
+                font-size: small;
+            }
+        }
+        >.right {
+            display: inline-block;
+            vertical-align: top;
+            width: 50%;
+            position: relative;
+            >.right-wrapper {
+                background: linear-gradient(to bottom, transparent, transparent 50%, var(--color-almost-white) 50%, var(--color-almost-white) 100%);
+                overflow: auto;
+                >.right-with-margin {
+                    width: 80%;
+                    margin-left: 10%;
+                    >.title {
+                        font-family: BsSignature;
+                        font-size: 150px;
+                    }
+                    >.text {
+                        font-family: Timeless;
+                        text-align: justify;
+                        font-size: large;
+                        >p {
+                            margin-bottom: 30px;
+                        }
+                    }
+                    >.signature {
+                        font-family: BsSignature;
+                        font-size: 50px;
+                        text-align: right;
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

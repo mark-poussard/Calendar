@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.scss';
-import Calendar from './ui/Calendar';
 import DataStore from './business/data/DataStore';
-import Circle from './ui/Circle';
+import Calendar from './ui/Calendar';
+import Home from './ui/Home/Home';
 
 interface IAppProps{
 
@@ -36,8 +36,7 @@ export default class App extends React.Component<IAppProps, IAppState>{
     }
     return (
       <div>
-        {/* <div className={'triangle-bottomright'}></div>
-        <Circle/> */}
+        <Home monthColor='var(--color-pink)' />
         <Calendar />
       </div>
     );

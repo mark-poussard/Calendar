@@ -2,8 +2,8 @@
     border: solid 2px var(--color-almost-white );
     padding: 1em;
     bottom: 2em;
-    right: 8vw;
-    position: fixed;
+    right: 15vw;
+    position: absolute;
     >.month-recap-group {
         display: inline-block;
         vertical-align: top;
@@ -42,6 +42,7 @@
         width: calc(84vw - 2em);
         padding: 0.5em;
         bottom: 0.5em;
+        right: 8vw;
         >.month-recap-group {
             width: 100%;
             >.month-recap-entry {

@@ -3,7 +3,7 @@
 }
 
 .calendar-body .calendar-grid-item{
-    width: calc(12vw - 2px);
+    width: calc(10vw - 2px);
     display: inline-block;
     >.calendar-grid-item-number {
         text-align: right;
@@ -24,10 +24,10 @@
 }
 
 .calendar-wrapper {
-    width: 84vw;
+    width: 70vw;
+    margin: 0 15vw;
     position: relative;
     text-align: center;
-    margin: 0 8vw;
     >.calendar-header {
         >.current-month {
             font-size: xxx-large;
@@ -35,7 +35,7 @@
         }
         >.calendar-navigation {
             position: absolute;
-            width: 84vw;
+            width: 70vw;
             >button {
                 border: none;
                 background-color: transparent;
@@ -54,7 +54,7 @@
             position: relative;
             background-color: var(--color-almost-white);
             >.calendar-legend{
-                width: calc(12vw - 2px);
+                width: calc(10vw - 2px);
                 display: inline-block;
                 font-size: x-large;
             }
@@ -63,7 +63,7 @@
                 width: 100vw;
                 position: absolute;
                 bottom: -4px;
-                left: -8vw;
+                left: -15vw;
             }
         }
     }
@@ -84,6 +84,8 @@
         background: linear-gradient(to bottom right, var(--color-almost-white), var(--color-almost-white) 70%, transparent 70%, transparent 100%);
     }
     .calendar-wrapper {
+        width: 84vw;
+        margin: 0 8vw;
         >.calendar-header {
             margin-top: 10px;
             >.current-month {
@@ -91,6 +93,7 @@
                 margin-bottom: 10px;
             }
             >.calendar-navigation {
+                width: 84vw;
                 >button {
                     font-size: x-large;
                 }

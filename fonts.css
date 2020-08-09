@@ -27,3 +27,10 @@
     src: url('fonts/Timeless-Bold.woff') format('woff'),
          url('fonts/Timeless-Bold.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: BsSignature;
+    font-display: swap;
+    src: url('fonts/Bs-Signature-Demo.woff') format('woff'),
+         url('fonts/Bs-Signature-Demo.ttf') format('truetype');
+}

@@ -82,6 +82,7 @@
 
 @media (max-width: 599px) {
     .home {
+        height: 200vh;
         >.home-wrapper {
             width: 84vw;
             margin: 0 8vw;
@@ -89,7 +90,15 @@
                 display: none;
             }
             >.left {
-                display: none;
+                display: block;
+                width: 100%;
+                position: initial;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                height: 80vh;
+                margin-bottom: 10vh;
             }
             >.right {
                 display: block;

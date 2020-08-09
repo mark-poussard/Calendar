@@ -5,3 +5,9 @@
     display: inline-block;
     position: absolute;
 }
+
+@media (max-width: 599px) {
+    .circle {
+        display: none;
+    }
+}

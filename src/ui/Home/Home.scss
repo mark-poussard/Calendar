@@ -100,12 +100,13 @@
                         width: 90%;
                         margin-left: 5%;
                         >.title {
-                            font-size: 100px;
+                            font-size: 80px;
                         }
                         >.text {
                             font-size: medium;
                             >p {
                                 margin-bottom: 20px;
+                                margin-top: 0;
                             }
                         }
                         >.signature {
